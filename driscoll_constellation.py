@@ -49,6 +49,7 @@ x = [-0.41, 0.57, 0.07, 0.00, -0.29, -0.32,-0.50,-0.23, -0.23]
 y = [4.12, 7.71, 2.36, 9.10, 13.35, 8.13, 7.19, 13.25,13.43]
 z = [2.06, 0.84, 1.56, 2.07, 2.36, 1.72, 0.66, 1.25,1.38]
 
+#Looked up the stars in Orion's visual magnitude (size) and spectral class (color): https://en.wikipedia.org/wiki/List_of_stars_in_Orion
 #Orion star size
 size = [0.42, 0.18, 1.64, 2.20, 1.69, 1.88, 2.07, 2.75, 4.58 ]
 s = [50*n for n in size] #scaling up for more visibility
@@ -75,14 +76,14 @@ colors = ['#fd9c89', '#e0e0ff', '#c0c0ff', '#d8d8ff', '#e0e0ff', '#d8d8ff', '#d8
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 
-plt.scatter(x, y, marker ='*', s=s, c=colors)
+ax.scatter(x, y, marker ='*', s=s, c=colors, edgecolors=colors)
 
 plt.title("Orion in 2-D")
 ax.spines['right'].set_visible(False)
 ax.spines['top'].set_visible(False)
 ax.xaxis.set_ticks_position('bottom')
 ax.yaxis.set_ticks_position('left')
-ax.set_axis_bgcolor((0.8, 0.8, 0.8, 1.0))
+ax.set_axis_bgcolor('#2B2F77')
 plt.xlabel('X axis')
 plt.ylabel('Y axis')
 
@@ -122,15 +123,15 @@ plt.show()
 fig_3d = plt.figure()
 ax = fig_3d.add_subplot(1, 1, 1, projection="3d")
 
-plt.scatter(x, y, z, c=colors, marker = '*')
+ax.scatter(x, y, z, c=colors, edgecolors=colors, marker = '*', s=s)
 
 plt.title("Orion in 3-D")
 ax.set_xlabel('X axis')
 ax.set_ylabel('Y axis')
 ax.set_zlabel('Z axis')
-ax.w_xaxis.set_pane_color((0.8, 0.8, 0.8, 1.0))
-ax.w_yaxis.set_pane_color((0.8, 0.8, 0.8, 1.0))
-ax.w_zaxis.set_pane_color((0.8, 0.8, 0.8, 1.0))
+ax.w_xaxis.set_pane_color((0.16, 0.18, 0.47, 1))
+ax.w_yaxis.set_pane_color((0.16, 0.18, 0.47, 1))
+ax.w_zaxis.set_pane_color((0.16, 0.18, 0.47, 1))                              
 
 plt.show()
 
